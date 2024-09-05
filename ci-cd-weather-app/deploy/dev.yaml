@@ -1,0 +1,9 @@
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: dev
+  annotations: {}
+  labels: {}
+description: dev
+gke:
+  cluster: projects/forward-map-432605-v5/locations/us-central1-c/clusters/cluster-1

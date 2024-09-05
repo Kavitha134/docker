@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/forward-map-432605-v5/gke-repo/quickstart-image', './docker/ci-cd-weather-app' ]
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/forward-map-432605-v5/gke-repo/quickstart-image', '.' ]
   id: 'Build Docker Image'
 
   # images:

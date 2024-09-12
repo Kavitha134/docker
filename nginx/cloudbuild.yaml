@@ -5,12 +5,8 @@ steps:
   - '-c'
   - |
     gcloud container clusters get-credentials cluster-1 --zone us-central1-c --project forward-map-432605-v5
+    kubectl apply -f nginx/app.yaml
 
-- name: 'gcr.io/cloud-builders/kubectl'
-  args: ['apply', '-f', 'nginx/app.yaml']
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
 
 options:
   logging: CLOUD_LOGGING_ONLY

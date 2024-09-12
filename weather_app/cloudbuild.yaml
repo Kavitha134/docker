@@ -1,1 +1,13 @@
 
+- name: 'gcr.io/cloud-builders/gcloud'
+entrypoint: 'bash'
+args:
+- '-c'
+- |
+gcloud container clusters get-credentials cluster-1 --zone us-central1-c --project cts01-varunkr
+
+- name: 'gcr.io/cloud-builders/kubectl'
+args: ['apply', '-f', 'app.yaml']
+env:
+- 'CLOUDSDK_COMPUTE_ZONE=us-central1-c' # Replace with your GKE zone
+- 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1' # Replace with your GKE cluster name

@@ -1,13 +1,13 @@
 steps:
 - name: 'gcr.io/cloud-builders/gcloud'
-entrypoint: 'bash'
-args:
-- '-c'
-- |
-gcloud container clusters get-credentials cluster-1 --zone us-central1-c --project forward-map-432605-v5
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    gcloud container clusters get-credentials cluster-1 --zone us-central1-c --project forward-map-432605-v5
 
 - name: 'gcr.io/cloud-builders/kubectl'
-args: ['apply', '-f', 'app.yaml']
-env:
-- 'CLOUDSDK_COMPUTE_ZONE=us-central1-c' # Replace with your GKE zone
-- 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1' # Replace with your GKE cluster name
+  args: ['apply', '-f', 'app.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
